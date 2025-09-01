@@ -8,6 +8,7 @@ touch ./${src}/${module}/application/usecase/.gitkeep
 touch ./${src}/${module}/application/service/.gitkeep
 
 mkdir -p ./${src}/${module}/domain
+mkdir -p ./${src}/${module}/domain/interfaces
 mkdir -p ./${src}/${module}/domain/model
 mkdir -p ./${src}/${module}/domain/port
 mkdir -p ./${src}/${module}/domain/port/driver
@@ -20,14 +21,18 @@ touch ./${src}/${module}/domain/model/.gitkeep
 touch ./${src}/${module}/domain/port/driver/usecase/.gitkeep
 touch ./${src}/${module}/domain/port/driver/service/.gitkeep
 touch ./${src}/${module}/domain/port/driven/adapter/.gitkeep
+touch ./${src}/${module}/domain/interfaces/.gitkeep
+
 
 mkdir -p ./${src}/${module}/infrastructure
 mkdir -p ./${src}/${module}/infrastructure/adapter/api
 mkdir -p ./${src}/${module}/infrastructure/adapter/api/controller
+mkdir -p ./${src}/${module}/infrastructure/adapter/api/factory
 mkdir -p ./${src}/${module}/infrastructure/adapter/api/middleware
 mkdir -p ./${src}/${module}/infrastructure/adapter/api/router
 
 touch ./${src}/${module}/infrastructure/adapter/api/controller/.gitkeep
+touch ./${src}/${module}/infrastructure/adapter/api/factory/.gitkeep
 touch ./${src}/${module}/infrastructure/adapter/api/middleware/.gitkeep
 touch ./${src}/${module}/infrastructure/adapter/api/router/.gitkeep
 
