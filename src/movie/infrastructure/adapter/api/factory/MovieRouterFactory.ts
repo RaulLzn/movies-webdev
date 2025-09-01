@@ -3,6 +3,7 @@ import MovieService from '../../../../application/service/MovieService'
 import MovieUseCase from '../../../../application/usecase/MovieUseCase'
 import AbstractMovieRouter from '../../../../domain/api/AbstractMovieRouter'
 import SwapiRepository from '../../repository/SwapiRepository/SwapiRepository'
+import LocalRepository from '../../repository/LocalRepository/LocalRepository'
 import MovieController from '../controller/MovieController'
 import MovieRecorderController from '../controller/MovieRecorderController'
 import MovieSeekerController from '../controller/MovieSeekerController'
@@ -16,8 +17,12 @@ export default class MovieRouterFactory {
     if (!swapiRepository) {
       throw new Error('Failed to create SwapiRepository')
     }
+    const localRepository = new LocalRepository()
+    if (!localRepository) {
+      throw new Error('Failed to create LocalRepository')
+    }
 
-    const movieService = new MovieService(swapiRepository)
+    const movieService = new MovieService(swapiRepository, localRepository)
     if (!movieService) {
       throw new Error('Failed to create MovieService')
     }

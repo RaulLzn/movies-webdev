@@ -3,4 +3,7 @@ import Movie from '../../../../model/Movie/Movie'
 
 export default interface LocalRepositoryPort extends Repository<string, Movie> {
   findByTitle: (title: string) => Promise<Movie[]>
+  findById: (id: string) => Promise<Movie>
+  findByIdList: (ids: string[]) => Promise<Movie[]>
+  findAll: () => Promise<Movie[]>
 }

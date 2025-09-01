@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import AbstractMovieController from '../../../../domain/api/AbstractMovieController'
 import Movie, { MovieInterface } from '../../../../domain/model/Movie/Movie'
-import MovieUseCasePort from '../../../../domain/port/driver/usecase/MovieUseCasePort'
+import MovieU     seCasePort from '../../../../domain/port/driver/usecase/MovieUseCasePort'
 
 export default class MovieRecorderController extends AbstractMovieController {
   constructor(private readonly movieUseCase: MovieUseCasePort) {
