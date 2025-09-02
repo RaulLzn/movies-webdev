@@ -141,10 +141,75 @@ export default class LocalRepository implements LocalRepositoryPort {
         )
     }
 
-    readonly save = async (_item: Movie): Promise<Movie> => {
-        // Para un repositorio local, este método podría no estar implementado
-        // o podría escribir al archivo JSON, pero eso sería complejo
-        throw new Error('Save method not implemented for LocalRepository')
+    readonly save = async (item: Movie): Promise<Movie> => {
+        try {
+            const films: MovieLocalInterface[] = await this.localDBC.movies()
+            
+            const maxId = films.length > 0 ? Math.max(...films.map(f => f.id)) : 0
+            const newId = maxId + 1
+            
+            const movieLocalData: MovieLocalInterface = {
+                id: newId,
+                title: item.getTitle(),
+                synopsis: item.getSynopsis(),
+                release: item.getRelease() instanceof Date 
+                    ? item.getRelease().toISOString()
+                    : new Date(item.getRelease()).toISOString(),
+                classification: item.getClassification(),
+                genre: item.getGenre(),
+                characters: item.getCharacters().map(char => ({
+                    name: `${char.getNames()} ${char.getSurnames()}`.trim(),
+                    biography: 'Character biography', // Placeholder ya que Character no tiene biography
+                    category: char.getCategory()
+                })),
+                director: {
+                    name: `${item.getDirector().getNames()} ${item.getDirector().getSurnames()}`.trim(),
+                    biography: 'Director biography', // Placeholder ya que Director no tiene biography
+                    reputation: item.getDirector().getReputation()
+                },
+                producers: item.getProducers().map(prod => ({
+                    name: `${prod.getNames()} ${prod.getSurnames()}`.trim(),
+                    biography: 'Producer biography', // Placeholder ya que Producer no tiene biography
+                    role: prod.getRole()
+                })),
+                studio: {
+                    name: item.getStudio().getName(),
+                    country: 'Unknown', // Placeholder ya que Studio no tiene country en el dominio
+                    foundation: new Date().toISOString() // Placeholder ya que Studio no tiene foundation en el dominio
+                },
+                images: item.getImages().map(img => ({
+                    url: img.getSource(), // Usar source como url
+                    description: 'Image description' // Placeholder ya que Image no tiene description
+                })),
+                trailer: item.getTrailer().map(trail => ({
+                    url: trail.getSource(), // Usar source como url
+                    description: 'Trailer description', // Placeholder ya que Trailer no tiene description
+                    duration: 0 // Placeholder ya que Trailer no tiene duration
+                }))
+            }
+            
+            // Usar el método addMovie de LocalDBC para agregar la nueva película
+            await this.localDBC.addMovie(movieLocalData)
+            
+            // Retornar la película guardada con el nuevo ID
+            return new Movie({
+                id: String(newId),
+                title: item.getTitle(),
+                synopsis: item.getSynopsis(),
+                release: item.getRelease(),
+                classification: item.getClassification(),
+                genre: item.getGenre(),
+                characters: item.getCharacters(),
+                director: item.getDirector(),
+                producers: item.getProducers(),
+                studio: item.getStudio(),
+                images: item.getImages(),
+                trailer: item.getTrailer()
+            })
+        } catch (error) {
+            console.error('Error saving movie to local repository:', error)
+            throw new Error('Failed to save movie to local repository')
+        }
     }
 
     readonly update = async (_item: Movie): Promise<Movie> => {

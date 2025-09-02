@@ -8,8 +8,21 @@ export default class MovieUseCase implements MovieUseCasePort {
   constructor(private readonly movieService: MovieServiceInterface) {}
 
   // TODO: implement
-  readonly register = (_movie: Movie): Promise<Movie> => {
-    return Promise.resolve(new NullMovie())
+  readonly register = async (movie: Movie): Promise<Movie> => {
+    try {
+      // Validar que la película no sea null
+      if (movie.isNull) {
+        return new NullMovie()
+      }
+
+      // Guardar la película usando el servicio
+      const savedMovie = await this.movieService.save(movie)
+      
+      return savedMovie
+    } catch (error) {
+      console.error('Error registering movie in use case:', error)
+      return new NullMovie()
+    }
   }
 
   readonly search = async (filter: MovieFilter): Promise<Movie[]> => {

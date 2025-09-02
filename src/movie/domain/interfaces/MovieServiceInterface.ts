@@ -4,4 +4,5 @@ export default interface MovieServiceInterface {
   findByTitle(title: string): Promise<Movie[]>
   findById(id: number): Promise<Movie>
   findByIdList(ids: number[]): Promise<Movie[]>
+  save(movie: Movie): Promise<Movie>
 }

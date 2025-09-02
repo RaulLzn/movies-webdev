@@ -28,6 +28,7 @@ export default class MovieRouter extends AbstractMovieRouter {
   private readonly listRoutes = (): void => {
     this.router.get('/list/:idList', this.movieController.getByIdList)
     this.router.get('/list/', this.movieSeekerController.search)
-
   }
+
+  
 }

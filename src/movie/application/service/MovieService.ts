@@ -55,7 +55,6 @@ export default class MovieService implements MovieServiceInterface {
     const swapiMovie = await this.swapiRepository.findById(id)
     const localMovie = await this.localRepository.findById(String(id))
 
-    // return rapidMovie ?? swapiMovie ?? localMovie ?? null
     return swapiMovie.isNull ? localMovie : swapiMovie
 
   }
@@ -66,6 +65,16 @@ export default class MovieService implements MovieServiceInterface {
     const localMovies = await this.localRepository.findByIdList(ids.map(String))
     movies.push(...swapiMovies, ...localMovies)
     return movies
+  }
+
+  readonly save = async (movie: Movie): Promise<Movie> => {
+    try {
+      const savedMovie = await this.localRepository.save(movie)
+      return savedMovie
+    } catch (error) {
+      console.error('Error saving movie in service:', error)
+      throw new Error('Failed to save movie')
+    }
   }
 
 }
