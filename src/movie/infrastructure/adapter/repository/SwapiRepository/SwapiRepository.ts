@@ -6,19 +6,19 @@ import Movie from '../../../../domain/model/Movie/Movie'
 import NullMovie from '../../../../domain/model/Movie/NullMovie'
 import NullStudio from '../../../../domain/model/studio/NullStudio'
 import SwapiRepositoryPort from '../../../../domain/port/driven/adapter/repository/SwapiRepositoryPort'
-import MakerProducers from './MakeProducers'
-import MakerCharacters from './MakerCharacters'
-import MakerDirector from './MakerDirector'
+import MakerProducersSwapi from './MakerProducersSwapi'
+import MakerCharactersSwapi from './MakerCharactersSwapi'
+import MakerDirectorSwapi from './MakerDirectorSwapi'
 
 export default class SwapiRepository implements SwapiRepositoryPort {
-  private readonly makerCharacters: MakerCharacters
-  private readonly makerDirector: MakerDirector
-  private readonly makerProducers: MakerProducers
+  private readonly makerCharactersSwapi: MakerCharactersSwapi
+  private readonly makerDirectorSwapi: MakerDirectorSwapi
+  private readonly makerProducersSwapi: MakerProducersSwapi
 
   constructor(private readonly swapiDBC: SwapiDBC) {
-    this.makerCharacters = new MakerCharacters(this.swapiDBC)
-    this.makerDirector = new MakerDirector()
-    this.makerProducers = new MakerProducers()
+    this.makerCharactersSwapi = new MakerCharactersSwapi(this.swapiDBC)
+    this.makerDirectorSwapi = new MakerDirectorSwapi()
+    this.makerProducersSwapi = new MakerProducersSwapi()
   }
 
   readonly findByIdList = async (ids: number[] ): Promise<Movie[]> =>{
@@ -27,11 +27,11 @@ export default class SwapiRepository implements SwapiRepositoryPort {
      return Promise.all(
       films.map(async (film) => {
         if (ids.includes(film.episode_id)) {
-          const characters = await this.makerCharacters.make(film.characters)
+          const characters = await this.makerCharactersSwapi.make(film.characters)
 
-          const director = this.makerDirector.make(film.director)
+          const director = this.makerDirectorSwapi.make(film.director)
 
-          const producers = this.makerProducers.make(film.producer)
+          const producers = this.makerProducersSwapi.make(film.producer)
 
             return new Movie({
             id: String(film.episode_id),
@@ -60,11 +60,11 @@ export default class SwapiRepository implements SwapiRepositoryPort {
     const film = films.find((f) => f.episode_id === id)
     if (!film) return new NullMovie()
 
-    const characters = await this.makerCharacters.make(film.characters)
+    const characters = await this.makerCharactersSwapi.make(film.characters)
 
-    const director = this.makerDirector.make(film.director)
+    const director = this.makerDirectorSwapi.make(film.director)
 
-    const producers = this.makerProducers.make(film.producer)
+    const producers = this.makerProducersSwapi.make(film.producer)
 
     return new Movie({
       id: String(film.episode_id),
@@ -90,11 +90,11 @@ export default class SwapiRepository implements SwapiRepositoryPort {
     return Promise.all(
       films.map(async (film) => {
         if (film.title.toLowerCase().includes(title.toLowerCase())) {
-          const characters = await this.makerCharacters.make(film.characters)
+          const characters = await this.makerCharactersSwapi.make(film.characters)
 
-          const director = this.makerDirector.make(film.director)
+          const director = this.makerDirectorSwapi.make(film.director)
 
-          const producers = this.makerProducers.make(film.producer)
+          const producers = this.makerProducersSwapi.make(film.producer)
 
           return new Movie({
             id: String(film.episode_id),

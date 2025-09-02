@@ -2,7 +2,7 @@ import NullProducer from '../../../../domain/model/producer/NullProducer'
 import Producer from '../../../../domain/model/producer/Producer'
 import Role from '../../../../domain/model/producer/Role'
 
-export default class MakerProducers {
+export default class MakerProducerSwapi {
   readonly make = (producers: string) => {
     const producersList = producers.split(',').map((producer) => {
       try {

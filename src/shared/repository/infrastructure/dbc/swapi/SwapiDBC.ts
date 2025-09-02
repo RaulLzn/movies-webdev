@@ -9,7 +9,7 @@ export default class SwapiDBC {
   }
 
   static readonly getInstance = (): SwapiDBC => {
-    SwapiDBC.instance = this.instance ?? new SwapiDBC()
+    SwapiDBC.instance = SwapiDBC.instance ?? new SwapiDBC()
     return SwapiDBC.instance
   }
 
@@ -28,3 +28,4 @@ export default class SwapiDBC {
     return await this.queryByPath('/films')
   }
 }
+

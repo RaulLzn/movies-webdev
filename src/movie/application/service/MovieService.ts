@@ -29,6 +29,7 @@ export default class MovieService implements MovieServiceInterface {
 
     // return rapidMovie ?? swapiMovie ?? localMovie ?? null
     return swapiMovie.isNull ? localMovie : swapiMovie
+
   }
   readonly findByIdList = async (ids: number[]): Promise<Movie[]> => {
     const movies: Movie[] = []
