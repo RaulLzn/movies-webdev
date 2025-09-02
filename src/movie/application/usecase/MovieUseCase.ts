@@ -52,4 +52,55 @@ export default class MovieUseCase implements MovieUseCasePort {
     const moviesById = await this.movieService.findByIdList(ids)
     return moviesById
   }
+
+  readonly update = async (movie: Movie): Promise<Movie> => {
+    try {
+      // Validar que la película no sea null
+      if (movie.isNull) {
+        return new NullMovie()
+      }
+
+      // Actualizar la película usando el servicio
+      const updatedMovie = await this.movieService.update(movie)
+      
+      return updatedMovie
+    } catch (error) {
+      console.error('Error updating movie in use case:', error)
+      return new NullMovie()
+    }
+  }
+
+  readonly patch = async (id: string, updates: Partial<Movie>): Promise<Movie> => {
+    try {
+      // Validar que el ID sea válido
+      if (!id || id.trim() === '') {
+        return new NullMovie()
+      }
+
+      // Actualizar parcialmente la película usando el servicio
+      const patchedMovie = await this.movieService.patch(id, updates)
+      
+      return patchedMovie
+    } catch (error) {
+      console.error('Error patching movie in use case:', error)
+      return new NullMovie()
+    }
+  }
+
+  readonly delete = async (id: string): Promise<boolean> => {
+    try {
+      // Validar que el ID sea válido
+      if (!id || id.trim() === '') {
+        return false
+      }
+
+      // Eliminar la película usando el servicio
+      const deleted = await this.movieService.delete(id)
+      
+      return deleted
+    } catch (error) {
+      console.error('Error deleting movie in use case:', error)
+      return false
+    }
+  }
 }

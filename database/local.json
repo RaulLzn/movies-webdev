@@ -666,34 +666,34 @@
   },
   {
     "id": 11,
-    "title": "Test Movie",
-    "synopsis": "This is a test movie for the API",
-    "release": "2024-01-01T00:00:00.000Z",
-    "classification": "PG",
-    "genre": "ACTION",
+    "title": "Test Movie Updated",
+    "synopsis": "This movie has been updated",
+    "release": "2024-06-01T00:00:00.000Z",
+    "classification": "UNKNOWN",
+    "genre": "UNKNOWN",
     "characters": [
       {
-        "name": "Test Hero",
+        "name": "Updated Hero",
         "biography": "Character biography",
         "category": "PROTAGONIST"
       }
     ],
     "director": {
-      "name": "Test Director",
+      "name": "Updated Director",
       "biography": "Director biography",
-      "reputation": 85
+      "reputation": 90
     },
     "producers": [
       {
-        "name": "Test Producer",
+        "name": "Updated Producer",
         "biography": "Producer biography",
         "role": "EXECUTIVE"
       }
     ],
     "studio": {
-      "name": "Test Studios",
+      "name": "Updated Studios",
       "country": "Unknown",
-      "foundation": "2025-09-02T17:30:15.694Z"
+      "foundation": "2025-09-02T18:10:27.054Z"
     },
     "images": [],
     "trailer": []

@@ -77,4 +77,37 @@ export default class MovieService implements MovieServiceInterface {
     }
   }
 
+  readonly update = async (movie: Movie): Promise<Movie> => {
+    try {
+      // Solo actualizamos en el repositorio local ya que es donde podemos escribir
+      const updatedMovie = await this.localRepository.update(movie)
+      return updatedMovie
+    } catch (error) {
+      console.error('Error updating movie in service:', error)
+      throw new Error('Failed to update movie')
+    }
+  }
+
+  readonly patch = async (id: string, updates: Partial<Movie>): Promise<Movie> => {
+    try {
+      // Solo actualizamos en el repositorio local ya que es donde podemos escribir
+      const patchedMovie = await this.localRepository.patch(id, updates)
+      return patchedMovie
+    } catch (error) {
+      console.error('Error patching movie in service:', error)
+      throw new Error('Failed to patch movie')
+    }
+  }
+
+  readonly delete = async (id: string): Promise<boolean> => {
+    try {
+      // Solo eliminamos del repositorio local ya que es donde podemos escribir
+      const deleted = await this.localRepository.delete(id)
+      return deleted
+    } catch (error) {
+      console.error('Error deleting movie in service:', error)
+      throw new Error('Failed to delete movie')
+    }
+  }
+
 }

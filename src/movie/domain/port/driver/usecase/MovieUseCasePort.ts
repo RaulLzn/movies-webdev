@@ -6,4 +6,7 @@ export default interface MovieUseCasePort {
   search: (filter: MovieFilter) => Promise<Movie[]>
   getById: (id: string) => Promise<Movie>
   getByIdList: (list: string[]) => Promise<Movie[]>
+  update: (movie: Movie) => Promise<Movie>
+  patch: (id: string, updates: Partial<Movie>) => Promise<Movie>
+  delete: (id: string) => Promise<boolean>
 }

@@ -8,6 +8,7 @@ import PotterRepository from '../../repository/PotterdbRepository/PotterdbReposi
 import MovieController from '../controller/MovieController'
 import MovieRecorderController from '../controller/MovieRecorderController'
 import MovieSeekerController from '../controller/MovieSeekerController'
+import MovieUpdaterController from '../controller/MovieUpdaterController'
 import MovieRouter from '../router/MovieRouter'
 
 export default class MovieRouterFactory {
@@ -64,10 +65,16 @@ export default class MovieRouterFactory {
       throw new Error('Failed to create MovieRecorderController')
     }
 
+    const movieUpdaterController = new MovieUpdaterController(movieUseCase)
+    if (!movieUpdaterController) {
+      throw new Error('Failed to create MovieUpdaterController')
+    }
+
     const movieRouter = new MovieRouter(
       movieController,
       movieSeekerController,
-      movieRecorderController
+      movieRecorderController,
+      movieUpdaterController
     )
     if (!movieRouter) {
       throw new Error('Failed to create MovieRouter')

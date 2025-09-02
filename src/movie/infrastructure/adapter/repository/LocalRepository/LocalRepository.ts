@@ -212,19 +212,110 @@ export default class LocalRepository implements LocalRepositoryPort {
         }
     }
 
-    readonly update = async (_item: Movie): Promise<Movie> => {
-        // Para un repositorio local, este método podría no estar implementado
-        throw new Error('Update method not implemented for LocalRepository')
+    readonly update = async (item: Movie): Promise<Movie> => {
+        try {
+            const movieId = item.getId()
+            
+            // Convertir la película de dominio a formato de interfaz local
+            const movieLocalData: MovieLocalInterface = {
+                id: parseInt(movieId),
+                title: item.getTitle(),
+                synopsis: item.getSynopsis(),
+                release: item.getRelease() instanceof Date 
+                    ? item.getRelease().toISOString()
+                    : new Date(item.getRelease()).toISOString(),
+                classification: item.getClassification(),
+                genre: item.getGenre(),
+                characters: item.getCharacters().map(char => ({
+                    name: `${char.getNames()} ${char.getSurnames()}`.trim(),
+                    biography: 'Character biography',
+                    category: char.getCategory()
+                })),
+                director: {
+                    name: `${item.getDirector().getNames()} ${item.getDirector().getSurnames()}`.trim(),
+                    biography: 'Director biography',
+                    reputation: item.getDirector().getReputation()
+                },
+                producers: item.getProducers().map(prod => ({
+                    name: `${prod.getNames()} ${prod.getSurnames()}`.trim(),
+                    biography: 'Producer biography',
+                    role: prod.getRole()
+                })),
+                studio: {
+                    name: item.getStudio().getName(),
+                    country: 'Unknown',
+                    foundation: new Date().toISOString()
+                },
+                images: item.getImages().map(img => ({
+                    url: img.getSource(),
+                    description: 'Image description'
+                })),
+                trailer: item.getTrailer().map(trail => ({
+                    url: trail.getSource(),
+                    description: 'Trailer description',
+                    duration: 0
+                }))
+            }
+            
+            // Usar el método updateMovie de LocalDBC
+            await this.localDBC.updateMovie(movieId, movieLocalData)
+            
+            // Retornar la película actualizada
+            return item
+        } catch (error) {
+            console.error('Error updating movie in local repository:', error)
+            throw new Error('Failed to update movie in local repository')
+        }
     }
 
-    readonly patch = async (_id: string, _item: Partial<Movie>): Promise<Movie> => {
-        // Para un repositorio local, este método podría no estar implementado
-        throw new Error('Patch method not implemented for LocalRepository')
+    readonly patch = async (id: string, item: Partial<Movie>): Promise<Movie> => {
+        try {
+            // Primero obtenemos la película actual
+            const currentMovie = await this.findById(id)
+            if (currentMovie.isNull) {
+                throw new Error(`Movie with ID ${id} not found`)
+            }
+            
+            // Crear una nueva película con los campos actualizados
+            const updatedMovie = new Movie({
+                id: currentMovie.getId(),
+                title: item.getTitle?.() ?? currentMovie.getTitle(),
+                synopsis: item.getSynopsis?.() ?? currentMovie.getSynopsis(),
+                release: item.getRelease?.() ?? currentMovie.getRelease(),
+                classification: item.getClassification?.() ?? currentMovie.getClassification(),
+                genre: item.getGenre?.() ?? currentMovie.getGenre(),
+                characters: item.getCharacters?.() ?? currentMovie.getCharacters(),
+                director: item.getDirector?.() ?? currentMovie.getDirector(),
+                producers: item.getProducers?.() ?? currentMovie.getProducers(),
+                studio: item.getStudio?.() ?? currentMovie.getStudio(),
+                images: item.getImages?.() ?? currentMovie.getImages(),
+                trailer: item.getTrailer?.() ?? currentMovie.getTrailer()
+            })
+            
+            // Usar el método update para guardar los cambios
+            return await this.update(updatedMovie)
+        } catch (error) {
+            console.error('Error patching movie in local repository:', error)
+            throw new Error('Failed to patch movie in local repository')
+        }
     }
 
-    readonly delete = async (_id: string): Promise<boolean> => {
-        // Para un repositorio local, este método podría no estar implementado
-        throw new Error('Delete method not implemented for LocalRepository')
+    readonly delete = async (id: string): Promise<boolean> => {
+        try {
+            // Verificar que la película existe antes de eliminarla
+            const movie = await this.findById(id)
+            if (movie.isNull) {
+                return false // La película no existe
+            }
+            
+            // Usar el método deleteMovie de LocalDBC
+            await this.localDBC.deleteMovie(id)
+            
+            return true // Eliminación exitosa
+        } catch (error) {
+            console.error('Error deleting movie from local repository:', error)
+            throw new Error('Failed to delete movie from local repository')
+        }
     }
 }
 
