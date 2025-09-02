@@ -27,30 +27,31 @@ export default class LocalRepository implements LocalRepositoryPort {
     readonly findByTitle = async (title: string): Promise<Movie[]> => {
         const films: MovieLocalInterface[] = await this.localDBC.movies()
 
-        return Promise.all(
-            films.map(async (film) => {
-                if (film.title.toLowerCase().includes(title.toLowerCase())) {
-                    const characters = await this.makerCharactersLocal.make(film.characters)
-                    const director = await this.makerDirectorLocal.make(film.director)
-                    const producers = await this.makerProducersLocal.make(film.producers)
-                    const studio = await this.makerStudioLocal.make(film.studio)
+        const matchingFilms = films.filter(film => 
+            film.title.toLowerCase().includes(title.toLowerCase())
+        )
 
-                    return new Movie({
-                        id: String(film.id),
-                        title: film.title,
-                        synopsis: film.synopsis,
-                        release: new Date(film.release),
-                        classification: Classification[film.classification as keyof typeof Classification] || Classification.UNKNOWN,
-                        genre: Genre[film.genre as keyof typeof Genre] || Genre.UNKNOWN,
-                        characters,
-                        director,
-                        producers,
-                        studio,
-                        images: [],
-                        trailer: [],
-                    })
-                }
-                return new NullMovie()
+        return Promise.all(
+            matchingFilms.map(async (film) => {
+                const characters = await this.makerCharactersLocal.make(film.characters)
+                const director = await this.makerDirectorLocal.make(film.director)
+                const producers = await this.makerProducersLocal.make(film.producers)
+                const studio = await this.makerStudioLocal.make(film.studio)
+
+                return new Movie({
+                    id: String(film.id),
+                    title: film.title,
+                    synopsis: film.synopsis,
+                    release: new Date(film.release),
+                    classification: Classification[film.classification as keyof typeof Classification] || Classification.UNKNOWN,
+                    genre: Genre[film.genre as keyof typeof Genre] || Genre.UNKNOWN,
+                    characters,
+                    director,
+                    producers,
+                    studio,
+                    images: [],
+                    trailer: [],
+                })
             })
         )
     }
@@ -85,30 +86,29 @@ export default class LocalRepository implements LocalRepositoryPort {
     readonly findByIdList = async (ids: string[]): Promise<Movie[]> => {
         const films: MovieLocalInterface[] = await this.localDBC.movies()
 
-        return Promise.all(
-            films.map(async (film) => {
-                if (ids.includes(String(film.id))) {
-                    const characters = await this.makerCharactersLocal.make(film.characters)
-                    const director = await this.makerDirectorLocal.make(film.director)
-                    const producers = await this.makerProducersLocal.make(film.producers)
-                    const studio = await this.makerStudioLocal.make(film.studio)
+        const matchingFilms = films.filter(film => ids.includes(String(film.id)))
 
-                    return new Movie({
-                        id: String(film.id),
-                        title: film.title,
-                        synopsis: film.synopsis,
-                        release: new Date(film.release),
-                        classification: Classification[film.classification as keyof typeof Classification] || Classification.UNKNOWN,
-                        genre: Genre[film.genre as keyof typeof Genre] || Genre.UNKNOWN,
-                        characters,
-                        director,
-                        producers,
-                        studio,
-                        images: [],
-                        trailer: [],
-                    })
-                }
-                return new NullMovie()
+        return Promise.all(
+            matchingFilms.map(async (film) => {
+                const characters = await this.makerCharactersLocal.make(film.characters)
+                const director = await this.makerDirectorLocal.make(film.director)
+                const producers = await this.makerProducersLocal.make(film.producers)
+                const studio = await this.makerStudioLocal.make(film.studio)
+
+                return new Movie({
+                    id: String(film.id),
+                    title: film.title,
+                    synopsis: film.synopsis,
+                    release: new Date(film.release),
+                    classification: Classification[film.classification as keyof typeof Classification] || Classification.UNKNOWN,
+                    genre: Genre[film.genre as keyof typeof Genre] || Genre.UNKNOWN,
+                    characters,
+                    director,
+                    producers,
+                    studio,
+                    images: [],
+                    trailer: [],
+                })
             })
         )
     }

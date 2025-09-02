@@ -24,31 +24,30 @@ export default class SwapiRepository implements SwapiRepositoryPort {
   readonly findByIdList = async (ids: number[] ): Promise<Movie[]> =>{
     const films: SwapiFilmInterface[] = await this.swapiDBC.films()
     
+    const matchingFilms = films.filter(film => ids.includes(film.episode_id))
+    
      return Promise.all(
-      films.map(async (film) => {
-        if (ids.includes(film.episode_id)) {
-          const characters = await this.makerCharactersSwapi.make(film.characters)
+      matchingFilms.map(async (film) => {
+        const characters = await this.makerCharactersSwapi.make(film.characters)
 
-          const director = this.makerDirectorSwapi.make(film.director)
+        const director = this.makerDirectorSwapi.make(film.director)
 
-          const producers = this.makerProducersSwapi.make(film.producer)
+        const producers = this.makerProducersSwapi.make(film.producer)
 
-            return new Movie({
-            id: String(film.episode_id),
-            title: film.title,
-            synopsis: film.opening_crawl,
-            release: new Date(film.release_date),
-            classification: Classification.UNKNOWN,
-            genre: Genre.UNKNOWN,
-            characters,
-            director,
-            producers,
-            studio: new NullStudio(),
-            images: [],
-            trailer: [],
-          })
-        }        
-        return new NullMovie()
+          return new Movie({
+          id: String(film.episode_id),
+          title: film.title,
+          synopsis: film.opening_crawl,
+          release: new Date(film.release_date),
+          classification: Classification.UNKNOWN,
+          genre: Genre.UNKNOWN,
+          characters,
+          director,
+          producers,
+          studio: new NullStudio(),
+          images: [],
+          trailer: [],
+        })
       }))
      
   }
@@ -87,31 +86,32 @@ export default class SwapiRepository implements SwapiRepositoryPort {
   readonly findByTitle = async (title: string): Promise<Movie[]> => {
     const films: SwapiFilmInterface[] = await this.swapiDBC.films()
 
+    const matchingFilms = films.filter(film => 
+      film.title.toLowerCase().includes(title.toLowerCase())
+    )
+
     return Promise.all(
-      films.map(async (film) => {
-        if (film.title.toLowerCase().includes(title.toLowerCase())) {
-          const characters = await this.makerCharactersSwapi.make(film.characters)
+      matchingFilms.map(async (film) => {
+        const characters = await this.makerCharactersSwapi.make(film.characters)
 
-          const director = this.makerDirectorSwapi.make(film.director)
+        const director = this.makerDirectorSwapi.make(film.director)
 
-          const producers = this.makerProducersSwapi.make(film.producer)
+        const producers = this.makerProducersSwapi.make(film.producer)
 
-          return new Movie({
-            id: String(film.episode_id),
-            title: film.title,
-            synopsis: film.opening_crawl,
-            release: new Date(film.release_date),
-            classification: Classification.UNKNOWN,
-            genre: Genre.UNKNOWN,
-            characters,
-            director,
-            producers,
-            studio: new NullStudio(),
-            images: [],
-            trailer: [],
-          })
-        }
-        return new NullMovie()
+        return new Movie({
+          id: String(film.episode_id),
+          title: film.title,
+          synopsis: film.opening_crawl,
+          release: new Date(film.release_date),
+          classification: Classification.UNKNOWN,
+          genre: Genre.UNKNOWN,
+          characters,
+          director,
+          producers,
+          studio: new NullStudio(),
+          images: [],
+          trailer: [],
+        })
       })
     )
   }

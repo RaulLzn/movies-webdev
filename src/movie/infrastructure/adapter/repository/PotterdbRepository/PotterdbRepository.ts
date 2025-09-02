@@ -23,30 +23,28 @@ export default class PotterdbRepository implements PotterdbRepositoryPort {
   readonly findByIdList = async (ids: number[]): Promise<Movie[]> => {
     const films: MoviePotterdbInterface[] = await this.potterdbDBC.movies()
     
+    const matchingFilms = films.filter(film => ids.includes(parseInt(film.id)))
+    
     return Promise.all(
-      films.map(async (film) => {
-        if (ids.includes(parseInt(film.id))) {
+      matchingFilms.map(async (film) => {
+        const director = this.makerDirector.make(film.attributes.directors[0] || '')
 
-          const director = this.makerDirector.make(film.attributes.directors[0] || '')
+        const producers = this.makerProducers.make(film.attributes.producers)
 
-          const producers = this.makerProducers.make(film.attributes.producers)
-
-          return new Movie({
-            id: film.id,
-            title: film.attributes.title,
-            synopsis: film.attributes.summary,
-            release: new Date(film.attributes.release_date),
-            classification: this.mapClassification(film.attributes.rating),
-            genre: Genre.UNKNOWN,
-            characters: [new NullCharacter()],
-            director,
-            producers,
-            studio: new NullStudio(),
-            images: [],
-            trailer: [],
-          })
-        }        
-        return new NullMovie()
+        return new Movie({
+          id: film.id,
+          title: film.attributes.title,
+          synopsis: film.attributes.summary,
+          release: new Date(film.attributes.release_date),
+          classification: this.mapClassification(film.attributes.rating),
+          genre: Genre.UNKNOWN,
+          characters: [new NullCharacter()],
+          director,
+          producers,
+          studio: new NullStudio(),
+          images: [],
+          trailer: [],
+        })
       })
     )
   }
@@ -80,30 +78,30 @@ export default class PotterdbRepository implements PotterdbRepositoryPort {
   readonly findByTitle = async (title: string): Promise<Movie[]> => {
     const films: MoviePotterdbInterface[] = await this.potterdbDBC.movies()
 
+    const matchingFilms = films.filter(film => 
+      film.attributes.title.toLowerCase().includes(title.toLowerCase())
+    )
+
     return Promise.all(
-      films.map(async (film) => {
-        if (film.attributes.title.toLowerCase().includes(title.toLowerCase())) {
+      matchingFilms.map(async (film) => {
+        const director = this.makerDirector.make(film.attributes.directors[0] || '')
 
-          const director = this.makerDirector.make(film.attributes.directors[0] || '')
+        const producers = this.makerProducers.make(film.attributes.producers)
 
-          const producers = this.makerProducers.make(film.attributes.producers)
-
-          return new Movie({
-            id: film.id,
-            title: film.attributes.title,
-            synopsis: film.attributes.summary,
-            release: new Date(film.attributes.release_date),
-            classification: this.mapClassification(film.attributes.rating),
-            genre: Genre.UNKNOWN,
-            characters: [new NullCharacter()],
-            director,
-            producers,
-            studio: new NullStudio(),
-            images: [],
-            trailer: [],
-          })
-        }
-        return new NullMovie()
+        return new Movie({
+          id: film.id,
+          title: film.attributes.title,
+          synopsis: film.attributes.summary,
+          release: new Date(film.attributes.release_date),
+          classification: this.mapClassification(film.attributes.rating),
+          genre: Genre.UNKNOWN,
+          characters: [new NullCharacter()],
+          director,
+          producers,
+          studio: new NullStudio(),
+          images: [],
+          trailer: [],
+        })
       })
     )
   }
