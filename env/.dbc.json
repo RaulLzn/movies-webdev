@@ -4,5 +4,9 @@
   },
   "RapidAPI": {
     "URL": "https://api.rapidapi.com"
+  },
+  "POTTER": {
+    "URL": "https://api.potterdb.com/v1"
   }
+
 }

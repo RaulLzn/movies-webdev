@@ -20,7 +20,6 @@ export default class MovieUseCase implements MovieUseCasePort {
     return movies
   }
 
-  // TODO: implement
   readonly getById = async (_id: string): Promise<Movie> => {
     const id = parseInt(_id, 10)
     if (Number.isNaN(id)) {
@@ -32,7 +31,6 @@ export default class MovieUseCase implements MovieUseCasePort {
     return movie
   }
 
-  // TODO: implement
   readonly getByIdList = async (_list: string[]): Promise<Movie[]> => {
     const ids = _list.map(id => parseInt(id, 10)).filter(id => !Number.isNaN(id))
     if (ids.length === 0) {
