@@ -1,0 +1,267 @@
+[
+  {
+    "id": 1,
+    "title": "The Matrix",
+    "synopsis": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "release": "1999-03-31T00:00:00.000Z",
+    "classification": "R",
+    "genre": "SCIFI",
+    "characters": [
+      {"name": "Neo", "biography": "Computer programmer turned savior", "category": "MAIN"},
+      {"name": "Morpheus", "biography": "Leader of the resistance", "category": "MAIN"},
+      {"name": "Trinity", "biography": "Skilled fighter and Neo's love interest", "category": "MAIN"},
+      {"name": "Agent Smith", "biography": "Artificial intelligence program", "category": "ANTAGONIST"}
+    ],
+    "director": {"name": "The Wachowski Sisters", "biography": "Visionary filmmakers", "reputation": 95},
+    "producers": [
+      {"name": "Joel Silver", "biography": "Renowned action producer", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Warner Bros.", "country": "USA", "foundation": "1923-04-04T00:00:00.000Z"},
+    "images": [
+      {"url": "matrix_poster.jpg", "description": "Movie poster"},
+      {"url": "matrix_scene1.jpg", "description": "Neo in the Matrix"}
+    ],
+    "trailer": [
+      {"url": "matrix_trailer.mp4", "description": "Official trailer", "duration": 150}
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Inception",
+    "synopsis": "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "release": "2010-07-16T00:00:00.000Z",
+    "classification": "PG_13",
+    "genre": "SCIFI",
+    "characters": [
+      {"name": "Dom Cobb", "biography": "Professional thief specializing in extraction", "category": "MAIN"},
+      {"name": "Arthur", "biography": "Cobb's partner and point man", "category": "MAIN"},
+      {"name": "Ariadne", "biography": "Architecture student and dream architect", "category": "MAIN"},
+      {"name": "Eames", "biography": "Skilled forger in dreams", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Christopher Nolan", "biography": "Master of complex narratives", "reputation": 98},
+    "producers": [
+      {"name": "Emma Thomas", "biography": "Christopher Nolan's producing partner", "role": "EXECUTIVE"},
+      {"name": "Christopher Nolan", "biography": "Director and producer", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Warner Bros.", "country": "USA", "foundation": "1923-04-04T00:00:00.000Z"},
+    "images": [
+      {"url": "inception_poster.jpg", "description": "Movie poster"},
+      {"url": "inception_scene1.jpg", "description": "Dream within a dream"}
+    ],
+    "trailer": [
+      {"url": "inception_trailer.mp4", "description": "Mind-bending trailer", "duration": 148}
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Pulp Fiction",
+    "synopsis": "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
+    "release": "1994-10-14T00:00:00.000Z",
+    "classification": "R",
+    "genre": "CRIME",
+    "characters": [
+      {"name": "Vincent Vega", "biography": "Professional hitman", "category": "MAIN"},
+      {"name": "Jules Winnfield", "biography": "Philosophical hitman", "category": "MAIN"},
+      {"name": "Mia Wallace", "biography": "Gangster's wife", "category": "MAIN"},
+      {"name": "Butch Coolidge", "biography": "Aging boxer", "category": "MAIN"}
+    ],
+    "director": {"name": "Quentin Tarantino", "biography": "Master of nonlinear storytelling", "reputation": 96},
+    "producers": [
+      {"name": "Lawrence Bender", "biography": "Independent film producer", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Miramax Films", "country": "USA", "foundation": "1979-01-01T00:00:00.000Z"},
+    "images": [
+      {"url": "pulpfiction_poster.jpg", "description": "Iconic poster"},
+      {"url": "pulpfiction_scene1.jpg", "description": "Diner scene"}
+    ],
+    "trailer": [
+      {"url": "pulpfiction_trailer.mp4", "description": "Stylish trailer", "duration": 120}
+    ]
+  },
+  {
+    "id": 4,
+    "title": "The Dark Knight",
+    "synopsis": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests.",
+    "release": "2008-07-18T00:00:00.000Z",
+    "classification": "PG_13",
+    "genre": "ACTION",
+    "characters": [
+      {"name": "Batman", "biography": "The Dark Knight of Gotham", "category": "MAIN"},
+      {"name": "Joker", "biography": "Agent of chaos", "category": "ANTAGONIST"},
+      {"name": "Harvey Dent", "biography": "Gotham's white knight", "category": "MAIN"},
+      {"name": "Commissioner Gordon", "biography": "Gotham's honest cop", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Christopher Nolan", "biography": "Master of complex narratives", "reputation": 98},
+    "producers": [
+      {"name": "Emma Thomas", "biography": "Christopher Nolan's producing partner", "role": "EXECUTIVE"},
+      {"name": "Charles Roven", "biography": "Superhero film specialist", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Warner Bros.", "country": "USA", "foundation": "1923-04-04T00:00:00.000Z"},
+    "images": [
+      {"url": "darkknight_poster.jpg", "description": "Dark and gritty poster"},
+      {"url": "darkknight_scene1.jpg", "description": "Joker's chaos"}
+    ],
+    "trailer": [
+      {"url": "darkknight_trailer.mp4", "description": "Epic superhero trailer", "duration": 155}
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Forrest Gump",
+    "synopsis": "The presidencies of Kennedy and Johnson, the Vietnam War, and other historical events unfold from the perspective of an Alabama man with an IQ of 75.",
+    "release": "1994-07-06T00:00:00.000Z",
+    "classification": "PG_13",
+    "genre": "BIOGRAPHY",
+    "characters": [
+      {"name": "Forrest Gump", "biography": "Simple man with extraordinary life", "category": "MAIN"},
+      {"name": "Jenny Curran", "biography": "Forrest's childhood friend and love", "category": "MAIN"},
+      {"name": "Lieutenant Dan", "biography": "Vietnam War veteran", "category": "SECONDARY"},
+      {"name": "Bubba Blue", "biography": "Forrest's army friend", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Robert Zemeckis", "biography": "Visual effects pioneer", "reputation": 90},
+    "producers": [
+      {"name": "Wendy Finerman", "biography": "Award-winning producer", "role": "EXECUTIVE"},
+      {"name": "Steve Tisch", "biography": "Entertainment mogul", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Paramount Pictures", "country": "USA", "foundation": "1912-05-08T00:00:00.000Z"},
+    "images": [
+      {"url": "forrestgump_poster.jpg", "description": "Heartwarming poster"},
+      {"url": "forrestgump_scene1.jpg", "description": "Bench scene"}
+    ],
+    "trailer": [
+      {"url": "forrestgump_trailer.mp4", "description": "Emotional journey trailer", "duration": 142}
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Interstellar",
+    "synopsis": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "release": "2014-11-07T00:00:00.000Z",
+    "classification": "PG_13",
+    "genre": "SCIFI",
+    "characters": [
+      {"name": "Cooper", "biography": "Former NASA pilot and farmer", "category": "MAIN"},
+      {"name": "Brand", "biography": "Scientist and astronaut", "category": "MAIN"},
+      {"name": "Murph", "biography": "Cooper's brilliant daughter", "category": "MAIN"},
+      {"name": "TARS", "biography": "Sarcastic robot companion", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Christopher Nolan", "biography": "Master of complex narratives", "reputation": 98},
+    "producers": [
+      {"name": "Emma Thomas", "biography": "Christopher Nolan's producing partner", "role": "EXECUTIVE"},
+      {"name": "Lynda Obst", "biography": "Science fiction specialist", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Paramount Pictures", "country": "USA", "foundation": "1912-05-08T00:00:00.000Z"},
+    "images": [
+      {"url": "interstellar_poster.jpg", "description": "Space exploration poster"},
+      {"url": "interstellar_scene1.jpg", "description": "Wormhole sequence"}
+    ],
+    "trailer": [
+      {"url": "interstellar_trailer.mp4", "description": "Epic space trailer", "duration": 169}
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Goodfellas",
+    "synopsis": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito.",
+    "release": "1990-09-21T00:00:00.000Z",
+    "classification": "R",
+    "genre": "CRIME",
+    "characters": [
+      {"name": "Henry Hill", "biography": "Mob associate turned informant", "category": "MAIN"},
+      {"name": "Jimmy Conway", "biography": "Irish-American gangster", "category": "MAIN"},
+      {"name": "Tommy DeVito", "biography": "Volatile and violent gangster", "category": "MAIN"},
+      {"name": "Karen Hill", "biography": "Henry's wife", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Martin Scorsese", "biography": "Master of crime cinema", "reputation": 97},
+    "producers": [
+      {"name": "Irwin Winkler", "biography": "Veteran Hollywood producer", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Warner Bros.", "country": "USA", "foundation": "1923-04-04T00:00:00.000Z"},
+    "images": [
+      {"url": "goodfellas_poster.jpg", "description": "Classic crime poster"},
+      {"url": "goodfellas_scene1.jpg", "description": "Mob life scene"}
+    ],
+    "trailer": [
+      {"url": "goodfellas_trailer.mp4", "description": "Gritty crime trailer", "duration": 146}
+    ]
+  },
+  {
+    "id": 8,
+    "title": "The Shawshank Redemption",
+    "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "release": "1994-09-23T00:00:00.000Z",
+    "classification": "R",
+    "genre": "UNKNOWN",
+    "characters": [
+      {"name": "Andy Dufresne", "biography": "Banker wrongly convicted of murder", "category": "MAIN"},
+      {"name": "Ellis Boyd 'Red' Redding", "biography": "Long-time prison inmate", "category": "MAIN"},
+      {"name": "Warden Norton", "biography": "Corrupt prison warden", "category": "ANTAGONIST"},
+      {"name": "Heywood", "biography": "Fellow inmate", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Frank Darabont", "biography": "Adaptation specialist", "reputation": 92},
+    "producers": [
+      {"name": "Niki Marvin", "biography": "Independent film producer", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Columbia Pictures", "country": "USA", "foundation": "1924-01-10T00:00:00.000Z"},
+    "images": [
+      {"url": "shawshank_poster.jpg", "description": "Hope and redemption poster"},
+      {"url": "shawshank_scene1.jpg", "description": "Prison yard scene"}
+    ],
+    "trailer": [
+      {"url": "shawshank_trailer.mp4", "description": "Inspirational trailer", "duration": 142}
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Fight Club",
+    "synopsis": "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much more.",
+    "release": "1999-10-15T00:00:00.000Z",
+    "classification": "R",
+    "genre": "UNKNOWN",
+    "characters": [
+      {"name": "The Narrator", "biography": "Insomniac office worker", "category": "MAIN"},
+      {"name": "Tyler Durden", "biography": "Charismatic soap maker", "category": "MAIN"},
+      {"name": "Marla Singer", "biography": "Chain-smoking support group tourist", "category": "MAIN"},
+      {"name": "Robert Paulson", "biography": "Support group member", "category": "SECONDARY"}
+    ],
+    "director": {"name": "David Fincher", "biography": "Master of dark psychological thrillers", "reputation": 94},
+    "producers": [
+      {"name": "Art Linson", "biography": "Hollywood veteran producer", "role": "EXECUTIVE"},
+      {"name": "Cean Chaffin", "biography": "Frequent Fincher collaborator", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "20th Century Fox", "country": "USA", "foundation": "1935-05-31T00:00:00.000Z"},
+    "images": [
+      {"url": "fightclub_poster.jpg", "description": "Iconic minimalist poster"},
+      {"url": "fightclub_scene1.jpg", "description": "Underground fight scene"}
+    ],
+    "trailer": [
+      {"url": "fightclub_trailer.mp4", "description": "Subversive trailer", "duration": 139}
+    ]
+  },
+  {
+    "id": 10,
+    "title": "The Godfather",
+    "synopsis": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    "release": "1972-03-24T00:00:00.000Z",
+    "classification": "R",
+    "genre": "CRIME",
+    "characters": [
+      {"name": "Vito Corleone", "biography": "Aging patriarch of crime family", "category": "MAIN"},
+      {"name": "Michael Corleone", "biography": "Reluctant heir to the family business", "category": "MAIN"},
+      {"name": "Sonny Corleone", "biography": "Vito's hot-headed eldest son", "category": "MAIN"},
+      {"name": "Tom Hagen", "biography": "Family consigliere", "category": "SECONDARY"}
+    ],
+    "director": {"name": "Francis Ford Coppola", "biography": "Legendary filmmaker", "reputation": 99},
+    "producers": [
+      {"name": "Albert S. Ruddy", "biography": "Oscar-winning producer", "role": "EXECUTIVE"}
+    ],
+    "studio": {"name": "Paramount Pictures", "country": "USA", "foundation": "1912-05-08T00:00:00.000Z"},
+    "images": [
+      {"url": "godfather_poster.jpg", "description": "Classic crime family poster"},
+      {"url": "godfather_scene1.jpg", "description": "Don Corleone's office"}
+    ],
+    "trailer": [
+      {"url": "godfather_trailer.mp4", "description": "Epic crime saga trailer", "duration": 175}
+    ]
+  }
+]

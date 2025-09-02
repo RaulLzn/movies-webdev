@@ -3,7 +3,7 @@ import Category from '../../../../domain/model/character/Category'
 import Character from '../../../../domain/model/character/Character'
 import NullCharacter from '../../../../domain/model/character/NullCharacter'
 
-export default class MakerCharacters {
+export default class MakerCharactersSwapi {
   constructor(private readonly swapiDBC: SwapiDBC) {}
 
   readonly make = async (characters: string[]): Promise<Character[]> => {

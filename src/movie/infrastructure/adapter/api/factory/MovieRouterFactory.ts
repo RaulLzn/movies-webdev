@@ -3,6 +3,7 @@ import MovieService from '../../../../application/service/MovieService'
 import MovieUseCase from '../../../../application/usecase/MovieUseCase'
 import AbstractMovieRouter from '../../../../domain/api/AbstractMovieRouter'
 import SwapiRepository from '../../repository/SwapiRepository/SwapiRepository'
+import LocalRepository from '../../repository/LocalRepository/LocalRepository'
 import PotterRepository from '../../repository/PotterdbRepository/PotterdbRepository'
 import MovieController from '../controller/MovieController'
 import MovieRecorderController from '../controller/MovieRecorderController'
@@ -21,6 +22,10 @@ export default class MovieRouterFactory {
     if (!swapiRepository) {
       throw new Error('Failed to create SwapiRepository')
     }
+    const localRepository = new LocalRepository()
+    if (!localRepository) {
+      throw new Error('Failed to create LocalRepository')
+    }
 
     const potterDBC = PotterDBC.getInstance()
     if (!potterDBC) {
@@ -32,7 +37,7 @@ export default class MovieRouterFactory {
       throw new Error('Failed to create PotterRepository')
     }
 
-    const movieService = new MovieService(swapiRepository, potterRepository)
+    const movieService = new MovieService(swapiRepository, potterRepository, localRepository)
     if (!movieService) {
       throw new Error('Failed to create MovieService')
     }

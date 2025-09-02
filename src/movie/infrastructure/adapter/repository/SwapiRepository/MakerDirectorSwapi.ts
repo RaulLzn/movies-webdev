@@ -1,7 +1,7 @@
 import Director from '../../../../domain/model/director/Director'
 import NullDirector from '../../../../domain/model/director/NullDirector'
 
-export default class MakerDirector {
+export default class MakerDirectorSwapi {
   readonly make = (director: string) => {
     try {
       const id = ''
