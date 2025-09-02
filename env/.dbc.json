@@ -9,7 +9,7 @@
     "URL": "https://api.potterdb.com/v1"
   },
   "Local": {
-    "PATH": "../database/local.json"
+    "PATH": "./database/local.json"
   }
 
 }

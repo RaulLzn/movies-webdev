@@ -1,4 +1,4 @@
-import { SwapiDBC, PotterDBC } from '../../../../../shared/Shared'
+import { SwapiDBC, PotterDBC, LocalDBC } from '../../../../../shared/Shared'
 import MovieService from '../../../../application/service/MovieService'
 import MovieUseCase from '../../../../application/usecase/MovieUseCase'
 import AbstractMovieRouter from '../../../../domain/api/AbstractMovieRouter'
@@ -22,7 +22,9 @@ export default class MovieRouterFactory {
     if (!swapiRepository) {
       throw new Error('Failed to create SwapiRepository')
     }
-    const localRepository = new LocalRepository()
+
+    const localDBC = LocalDBC.getInstance()
+    const localRepository = new LocalRepository(localDBC)
     if (!localRepository) {
       throw new Error('Failed to create LocalRepository')
     }
