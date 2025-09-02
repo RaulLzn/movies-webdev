@@ -1,8 +1,9 @@
-import { SwapiDBC } from '../../../../../shared/Shared'
+import { SwapiDBC, PotterDBC } from '../../../../../shared/Shared'
 import MovieService from '../../../../application/service/MovieService'
 import MovieUseCase from '../../../../application/usecase/MovieUseCase'
 import AbstractMovieRouter from '../../../../domain/api/AbstractMovieRouter'
 import SwapiRepository from '../../repository/SwapiRepository/SwapiRepository'
+import PotterRepository from '../../repository/PotterdbRepository/PotterdbRepository'
 import MovieController from '../controller/MovieController'
 import MovieRecorderController from '../controller/MovieRecorderController'
 import MovieSeekerController from '../controller/MovieSeekerController'
@@ -10,14 +11,28 @@ import MovieRouter from '../router/MovieRouter'
 
 export default class MovieRouterFactory {
   static readonly create = (): AbstractMovieRouter => {
+
     const swapiDBC = SwapiDBC.getInstance()
+    if (!swapiDBC) {
+      throw new Error('Failed to create SwapiDBC')
+    }
 
     const swapiRepository = new SwapiRepository(swapiDBC)
     if (!swapiRepository) {
       throw new Error('Failed to create SwapiRepository')
     }
 
-    const movieService = new MovieService(swapiRepository)
+    const potterDBC = PotterDBC.getInstance()
+    if (!potterDBC) {
+      throw new Error('Failed to create PotterDBC')
+    }
+
+    const potterRepository = new PotterRepository(potterDBC)
+    if (!potterRepository) {
+      throw new Error('Failed to create PotterRepository')
+    }
+
+    const movieService = new MovieService(swapiRepository, potterRepository)
     if (!movieService) {
       throw new Error('Failed to create MovieService')
     }
