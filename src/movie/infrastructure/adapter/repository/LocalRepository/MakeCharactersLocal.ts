@@ -1,4 +1,3 @@
-import LocalDBC from '../../../../../shared/repository/infrastructure/dbc/local/LocalDBC'
 import { LocalCharacterInterface } from '../../../../domain/interfaces/MovieLocalInterface'
 import Category from '../../../../domain/model/character/Category'
 import Character from '../../../../domain/model/character/Character'
