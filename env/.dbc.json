@@ -6,6 +6,6 @@
     "URL": "https://api.rapidapi.com"
   },
   "Local": {
-    "PATH": "../database/local.json"
+    "PATH": "./database/local.json"
   }
 }
