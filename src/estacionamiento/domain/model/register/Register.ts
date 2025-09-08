@@ -2,6 +2,16 @@ import NullObject from "../../../../shared/base/domain/interfaces/NullObject";
 import { RegisterLocalInterface } from "../../interfaces/RegisterLocalInterface";
 import Vehicle from "../vehicle/Vehicle";
 
+/** 
+ * @class Register
+ * @description Representa un registro de entrada y salida de un vehículo en el estacionamiento.
+ * @property {string} registerId - Identificador único del registro.
+ * @param {Vehicle} vehicle - Vehículo asociado al registro.
+ * @param {Date} checkInTime - Fecha y hora de entrada del vehículo.
+ * @param {Date | null} checkOutTime - Fecha y hora de salida del vehículo (puede ser null si no ha salido).
+ * @param {number} timeInMinutes - Tiempo total que el vehículo ha estado en el estacionamiento, en minutos.
+ * @param {number} totalPrice - Precio total a pagar por el tiempo que el vehículo ha estado en el estacionamiento.
+ */
 export default class Register implements NullObject {
     private registerId: string
     private vehicle: Vehicle

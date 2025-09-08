@@ -1,5 +1,23 @@
 import Register from "./Register";
 
+
+/** 
+ * @class NullRegister
+ * @description Implementa el patrón Null Object para la clase Register.
+ * @property {string} registerId - Identificador del registro (valor predeterminado: 'not-found').
+ * @property {Vehicle} vehicle - Vehículo asociado al registro (valor predeterminado: vehículo nulo).
+ * @property {Date} checkInTime - Fecha y hora de entrada (valor predeterminado: 1 de enero de 1970).
+ * @property {Date | null} checkOutTime - Fecha y hora de salida (valor predeterminado: null).
+ * @property {number} timeInMinutes - Tiempo en minutos (valor predeterminado: 0).
+ * @property {number} totalPrice - Precio total (valor predeterminado: 0).
+ * Representa un registro nulo que indica que no se encontró un registro válido.
+ * Sobrescribe los métodos de la clase Register para evitar modificaciones.
+ * Lanza errores si se intenta modificar sus propiedades.
+ * Hereda todas las propiedades y métodos de la clase Register.
+ * Tiene un identificador fijo 'not-found' y valores predeterminados para sus propiedades.
+ * La propiedad isNull se establece en true para indicar que es un objeto nulo.
+ * Utilizado para evitar valores nulos y manejar casos donde no se encuentra un registro.
+ */
 export default class NullRegister extends Register {
     constructor() {
         super({
