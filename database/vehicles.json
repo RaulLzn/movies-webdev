@@ -1,0 +1,66 @@
+[
+  {
+    "placa": "ABC-123",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "XYZ-987",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "LMN-456",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "QRS-741",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "JKL-52A",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "MNO-73B",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "PQR-19C",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "TUV-84D",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "DEF-321",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "GHI-654",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "RST-88E",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "UVW-47F",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "OPQ-777",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "HIJ-432",
+    "tipo": "CARRO"
+  },
+  {
+    "placa": "KLM-29G",
+    "tipo": "MOTO"
+  },
+  {
+    "placa": "NOP-63H",
+    "tipo": "MOTO"
+  }
+]
