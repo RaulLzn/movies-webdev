@@ -21,6 +21,7 @@ export default class Register implements NullObject {
     private totalPrice: number
     public isNull: boolean
 
+    
     constructor(register: RegisterLocalInterface) {
         this.registerId = register.registerId || ''
         this.vehicle = new Vehicle(register.vehicle)

@@ -1,0 +1,114 @@
+{
+  "registers": [
+    {
+      "registerId": "uuid-park-8bl13rot0mfbywq67",
+      "vehicle": {
+        "placa": "XYZ-123",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T03:05:06.943Z",
+      "checkOutTime": "2025-09-09T03:26:44.997Z",
+      "timeInMinutes": 22,
+      "totalPrice": 2304
+    },
+    {
+      "registerId": "uuid-park-6gwpje1vqmfbzef1z",
+      "vehicle": {
+        "placa": "AAA-123",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T03:18:52.343Z",
+      "checkOutTime": "2025-09-09T03:21:17.643Z",
+      "timeInMinutes": 3,
+      "totalPrice": 314
+    },
+    {
+      "registerId": "uuid-park-b0j8t9na6mfcm8sn6",
+      "vehicle": {
+        "placa": "ABC-123",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T13:58:21.186Z",
+      "checkOutTime": "2025-09-09T14:00:05.059Z",
+      "timeInMinutes": 2,
+      "totalPrice": 209
+    },
+    {
+      "registerId": "uuid-park-8un4bf9lpmfcmibf9",
+      "vehicle": {
+        "placa": "ABC-123",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T14:05:45.429Z",
+      "checkOutTime": "2025-09-09T14:06:33.566Z",
+      "timeInMinutes": 1,
+      "totalPrice": 0
+    },
+    {
+      "registerId": "uuid-park-i6qeh58lhmfcmihet",
+      "vehicle": {
+        "placa": "NEW-999",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T14:05:53.189Z",
+      "checkOutTime": "2025-09-09T14:06:39.382Z",
+      "timeInMinutes": 1,
+      "totalPrice": 105
+    },
+    {
+      "registerId": "uuid-park-9ldlg0l9pmfcmkd0y",
+      "vehicle": {
+        "placa": "JKL-52A",
+        "tipo": "MOTO"
+      },
+      "checkInTime": "2025-09-09T14:07:20.818Z",
+      "checkOutTime": "2025-09-09T14:09:25.001Z",
+      "timeInMinutes": 3,
+      "totalPrice": 0
+    },
+    {
+      "registerId": "uuid-park-n2vlpxqilmfcn85yh",
+      "vehicle": {
+        "placa": "NEW-MOTO",
+        "tipo": "MOTO"
+      },
+      "checkInTime": "2025-09-09T14:25:51.401Z",
+      "checkOutTime": "2025-09-09T14:26:04.219Z",
+      "timeInMinutes": 1,
+      "totalPrice": 79
+    },
+    {
+      "registerId": "uuid-park-y9yxwgk6tmfcn8lke",
+      "vehicle": {
+        "placa": "NEW-CARRO",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T14:26:11.630Z",
+      "checkOutTime": "2025-09-09T14:26:23.199Z",
+      "timeInMinutes": 1,
+      "totalPrice": 105
+    },
+    {
+      "registerId": "uuid-park-a98exzbovmfcn91ff",
+      "vehicle": {
+        "placa": "DEFAULT-TYPE",
+        "tipo": "CARRO"
+      },
+      "checkInTime": "2025-09-09T14:26:32.187Z",
+      "checkOutTime": "2025-09-09T14:26:49.607Z",
+      "timeInMinutes": 1,
+      "totalPrice": 105
+    },
+    {
+      "registerId": "uuid-park-y8ujqvoiamfcn9kv4",
+      "vehicle": {
+        "placa": "MNO-73B",
+        "tipo": "MOTO"
+      },
+      "checkInTime": "2025-09-09T14:26:57.376Z",
+      "checkOutTime": "2025-09-09T14:27:09.345Z",
+      "timeInMinutes": 1,
+      "totalPrice": 0
+    }
+  ]
+}

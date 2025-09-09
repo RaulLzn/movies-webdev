@@ -1,6 +1,5 @@
 import Register from "./Register";
 
-
 /** 
  * @class NullRegister
  * @description Implementa el patrón Null Object para la clase Register.

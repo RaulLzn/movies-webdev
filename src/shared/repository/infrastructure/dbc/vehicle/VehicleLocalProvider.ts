@@ -1,7 +1,7 @@
 import EnvLocalInterface from "../../../domain/interfaces/EnvLocalInterface";
 import env_json from '../../../../../../env/.dbc.json'
 
-export default class LocalProvider {
+export default class VehicleLocalProvider {
 
   private readonly env: EnvLocalInterface
 
@@ -9,9 +9,9 @@ export default class LocalProvider {
     this.env = env_json as EnvLocalInterface
 
     if (!this.env) {
-      throw new Error('Invalid local configuration')
+      throw new Error('Invalid vehicle local configuration')
     }
   }
 
-    readonly PATH = () => this.env.Local.PATH
+    readonly PATH = () => this.env.Vehicle.PATH
 }

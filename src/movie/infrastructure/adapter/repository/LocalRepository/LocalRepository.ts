@@ -1,4 +1,3 @@
-
 import { LocalDBC } from '../../../../../shared/Shared'
 import LocalRepositoryPort from '../../../../domain/port/driven/adapter/repository/LocalRepositoryPort'
 import Movie from '../../../../domain/model/Movie/Movie'

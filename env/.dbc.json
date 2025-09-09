@@ -10,6 +10,12 @@
   },
   "Local": {
     "PATH": "./database/local.json"
+  },
+  "Vehicle": {
+    "PATH": "./database/vehicles.json"
+  },
+  "Register": {
+    "PATH": "./database/registers.json"
   }
 
 }

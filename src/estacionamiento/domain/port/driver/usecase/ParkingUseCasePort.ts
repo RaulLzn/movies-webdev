@@ -1,12 +1,11 @@
-// src/estacionamiento/domain/interfaces/ParkingServiceInterface.ts
-import Register from "../model/register/Register";
-import { DailyBalanceInterface } from "./DailyBalanceInterface";
+import { DailyBalanceInterface } from "../../../interfaces/DailyBalanceInterface";
+import Register from "../../../model/register/Register";
 
 /**
- * @interface ParkingServiceInterface
- * @description Interfaz que define los métodos para el servicio de estacionamiento.
+ * @interface ParkingUseCasePort
+ * @description Interfaz que define los casos de uso para el dominio de estacionamiento.
  */
-export interface ParkingServiceInterface {
+export default interface ParkingUseCasePort {
 
     /**
      * @method registerEntry
@@ -15,7 +14,7 @@ export interface ParkingServiceInterface {
      * @param {string} tipo - El tipo de vehículo (CARRO o MOTO).
      * @returns {Promise<Register>} - Promesa que resuelve con el registro creado.
      */
-    registerEntry(placa: string, tipo: string): Promise<Register>;
+    registerEntry: (placa: string, tipo: string) => Promise<Register>;
 
     /**
      * @method processExit
@@ -23,7 +22,7 @@ export interface ParkingServiceInterface {
      * @param {string} placa - La placa del vehículo que sale.
      * @returns {Promise<Register>} - Promesa que resuelve con el registro actualizado.
      */
-    processExit(placa: string): Promise<Register>;
+    processExit: (placa: string) => Promise<Register>;
 
     /**
      * @method getDailyBalance
@@ -32,5 +31,5 @@ export interface ParkingServiceInterface {
      * @returns {Promise<DailyBalanceInterface>} 
      *          - Promesa que resuelve con el balance diario, incluyendo la fecha del reporte, el recaudo total del día y un detalle de los vehículos que ingresaron y salieron.
      */
-    getDailyBalance(fecha: string): Promise<DailyBalanceInterface>;
+    getDailyBalance: (fecha: string) => Promise<DailyBalanceInterface>;
 }

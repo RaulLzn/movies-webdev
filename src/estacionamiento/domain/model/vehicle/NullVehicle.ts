@@ -28,4 +28,5 @@ export default class NullVehicle extends Vehicle {
     override setTipo = (_tipo: string): void => {
         throw new Error('Cannot set tipo on a NullVehicle');
     }
+
 }
